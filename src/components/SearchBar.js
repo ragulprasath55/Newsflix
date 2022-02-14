@@ -42,6 +42,7 @@ const Form = styled.form`
     
     height: 20px;
     width: 40%;
+    padding-right: 60px
   }
 `;
 
