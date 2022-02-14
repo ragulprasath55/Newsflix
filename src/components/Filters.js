@@ -14,6 +14,7 @@ export default function Filters() {
     if (news.length === 0) {
       setError('Oops! No result found, Try changing the filters or keywords')
     }
+    setError('')
     setNews(news);
   }, [filter.Language, filter.Country, filter.Source]);
 
