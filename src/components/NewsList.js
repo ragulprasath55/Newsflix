@@ -28,6 +28,7 @@ margin-bottom: 20px;
 }
 
 @media(max-width:1000px){
-    grid-template-columns: 1fr
+    grid-template-columns: 1fr;
+    font-size: 15px;
 }
 `
