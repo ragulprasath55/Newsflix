@@ -1,12 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import {
   getNewsByKeywordAndFilter,
-  getNewsByKeyword,
-  getRandomNews,
 } from "../api";
 import { NewsContext } from "../Context/NewsContext";
-import { resetClickedStatus } from "./Nav";
 
 export default function SearchBar() {
   const { setNews, setCategoryClicked, text, setText, filter } =
@@ -34,18 +31,25 @@ export default function SearchBar() {
 }
 
 const Form = styled.form`
-  width: 40%;
+  width: 20%;
   display: flex;
+  padding-right: 100px;
+  margin-bottom: 10px;
+  &:hover{
+    color: black;
+  }
+  @media(max-width:780px){
+    
+    height: 20px;
+    width: 40%;
+  }
 `;
 
 const Input = styled.input`
   border-style: groove;
-  color: silver;
+  color: red;
   background-color: black;
   padding: 3px 5px;
   width: 100%;
-
-  &:focus {
-    border-color: red;
-  }
+  border-color: red;
 `;

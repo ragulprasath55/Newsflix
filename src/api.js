@@ -5,7 +5,8 @@ export async function getNewsByKeyword(keyword) {
         `/api/news?access_key=66261eeb5a38273918edbbbe0eb287a1&keywords=${keyword}&sources=en,-de&sort=popularity&limit=15&sources=cnn,-bbc`
     );
     // No null check required, cause predefined keywords are used in this method
-    return news.data.data
+    const trimmedNews = trimNewsDescription(news.data.data)
+    return trimmedNews
 }
 
 
@@ -14,7 +15,8 @@ export async function getRandomNews() {
     const news = await axios.get(
         `/api/news?access_key=66261eeb5a38273918edbbbe0eb287a1&sources=en,-de&sort=popularity&limit=15&sources=cnn,-bbc`
     );
-    return news.data.data
+    const trimmedNews = trimNewsDescription(news.data.data)
+    return trimmedNews
 }
 
 export async function getNewsByKeywordAndFilter(keyword, filter) {
@@ -39,6 +41,22 @@ export async function getNewsByKeywordAndFilter(keyword, filter) {
     console.log(baseUrl);
     const news = await axios.get(baseUrl
     );
-    return news.data.data
+    const trimmedNews = trimNewsDescription(news.data.data)
+    return trimmedNews
 }
 
+function trimNewsDescription(news) {
+    console.log(news);
+    news.forEach((newsItem, i) => {
+        if (newsItem.description.length > 450) {
+            const desc = newsItem.description
+            console.log(desc);
+            const lastBeforeSentEnd = desc.slice(0, desc.length - 2).lastIndexOf('.');
+            news[i].description = desc.slice(0, lastBeforeSentEnd)
+            // console.log('lastbefore', lastBeforeSentEnd);
+        }
+    })
+
+    return news;
+
+}

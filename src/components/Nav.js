@@ -46,6 +46,12 @@ export default function Nav() {
 }
 
 const NavContainer = styled.div`
+position: fixed;
+background-color: black;
+width: 100%;
+top: 0;
+margin: auto;
+height: 60px;
 display: flex;
 align-items: center;
 justify-content: space-around;
@@ -59,6 +65,11 @@ color: red;
 font-size: 25px;
 font-weight:500;
 cursor: pointer;
+@media(max-width:780px){
+    font-size: 25px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
 `
 
 const UL = styled.ul`
@@ -66,7 +77,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 margin-right: auto;
-@media(max-width:768px){
+@media(max-width:960px){
     display: none;
 }
 `

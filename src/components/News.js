@@ -22,18 +22,6 @@ const NewContainer = styled.div`
   padding-bottom: 10px;
   border-radius: 20px;
 
-  @keyframes pendulum {
-    100% {
-      transform: translateX(0px);
-    }
-    50% {
-      transform: translateX(50px);
-    }
-    20% {
-      transform: translateX(-50px);
-    }
-  }
-
   a {
     text-decoration: none;
     color: #7FDBFF;
@@ -62,5 +50,11 @@ const NewContainer = styled.div`
     }
 
     background-image: linear-gradient( 113.3deg,  rgba(22,68,150,1) 6.9%,  rgba(217,9,27,1) 75% );
+  }
+
+  @media(max-width:1400px){
+    &:hover{
+       transform: none;
+    }
   }
 `;

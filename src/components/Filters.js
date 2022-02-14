@@ -18,7 +18,7 @@ export default function Filters() {
   }, [filter.Language, filter.Country, filter.Source]);
 
   return (
-    <div>
+    <FilterContainer>
       <label htmlFor="Country"></label>
       <Filter id="Country" lable="Country" onChange={(e) => onChange(e.target.value, 'Country')}>
         <option value="">Choose Country</option>
@@ -38,14 +38,26 @@ export default function Filters() {
         <option value="cnn">CNN</option>
         <option value="bcc">BCC</option>
       </Filter>
-    </div>
+    </FilterContainer>
   )
 }
 
 const Filter = styled.select`
 margin-right: 10px;
 background-color: black;
+margin-left: auto;
 color: white;
 border:none;
+@media(max-width:780px){
+    font-size: 12px;
+}
+`
+
+const FilterContainer = styled.div`
+ display: flex;
+ margin-right: auto;
+@media(max-width:960px){
+ position: fixed;
+ top: 50px;}
 `
 
